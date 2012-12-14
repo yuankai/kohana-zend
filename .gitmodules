@@ -1,0 +1,3 @@
+[submodule "vendor/Zend"]
+	path = vendor/Zend
+	url = https://github.com/zendframework/zf2.git
