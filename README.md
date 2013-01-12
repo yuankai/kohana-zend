@@ -1,7 +1,7 @@
 #kohana-zend
 ===========
 
-#a simple module for using Zend framwork2 in kohana3
+a simple module for using Zend framwork2 in kohana3
 
 #Usage
 
