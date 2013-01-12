@@ -1,11 +1,18 @@
-<?php 
+<?php
 
 defined('SYSPATH') or die('No direct script access.');
 
 //Load Zend's Autoloader
-if ($path = Kohana::find_file('vendor', 'zend/library/Zend/Loader')){
+if ($path = Kohana::find_file('vendor', 'zend/library/Zend/Loader/AutoloaderFactory'))
+{
+	include $path;
 
-	ini_set('include_path', ini_get('include_path').PATH_SEPARATOR.dirname(dirname($path)));
-	require_once 'Zend/Loader/Autoloader.php';
-	Zend_Loader_Autoloader::getInstance();
+	Zend\Loader\AutoloaderFactory::factory(array(
+	    'Zend\Loader\StandardAutoloader' => array(
+		'autoregister_zf' => true,
+		'namespaces' => array(
+		    __NAMESPACE__ => __DIR__.'/'.__NAMESPACE__,
+		),
+	    ),
+	));
 }
